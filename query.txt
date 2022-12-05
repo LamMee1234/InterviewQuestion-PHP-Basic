@@ -1,0 +1,23 @@
+A)
+UPDATE employee_job_table
+SET j.job_id = 4, j.effective_date = '2020-01-01'
+FROM employee_job_table j 
+INNER JOIN employee_profile_table p USING (employee_id)
+WHERE p.employee_no = 1002
+
+B)
+SELECT p.employee_name, p.employee_no, j.effective_date, jp.job_name
+FROM employee_profile_table p, employee_job_table j, job_profile_table jp 
+WHERE p.employee_id = j.employee_id AND j.job_id = jp.job_id;
+
+C)
+SELECT p.employee_name, p.employee_no,  jp.job_name AS Job_Title 
+FROM employee_profile_table p, employee_job_table j, job_profile_table jp 
+WHERE p.employee_id = j.employee_id AND p.job_id = jp.job_id 
+ORDER BY j.effective_date DESC;
+
+D)
+DELETE * FROM employee_profile_table
+JOIN employee_job_table USING (employee_id)
+JOIN job_profile_table (job_id)
+WHERE effective_date>='2020-01-01'
