@@ -20,4 +20,4 @@ D)
 DELETE * FROM employee_profile_table
 JOIN employee_job_table USING (employee_id)
 JOIN job_profile_table (job_id)
-WHERE effective_date>='2020-01-01'
+WHERE employee_no = 1000 AND effective_date>='2020-01-01'
